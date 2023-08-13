@@ -41,6 +41,7 @@ class Student_admission extends CI_Controller
   public function index()
   {
     $students = $this->admission_model->get_all();
+    // pp($students);
     view('admission/index', compact("students"), "Portal | Admission Create");
   }
 
@@ -56,35 +57,35 @@ class Student_admission extends CI_Controller
         $student_id = $this->input->post('student_id');
         $current_class_id = $this->input->post('current_class_id');
         $remarks = $this->input->post('remarks');
+        $academic_year = $this->input->post('academic_year');
 
 
         // if ($this->form_validation->run() == true) {
 
         if ($student = $this->student_model->get($student_id)) {
-
-          $name = $student->name;
-          $prev_class_id = $student->class_id;
           $data = [
-            "name" => $name,
             "student_id" => $student_id,
-            "prev_class_id" => $prev_class_id,
+            "prev_class_id" => $student->class_id,
             "current_class_id" => $current_class_id,
+            "academic_year" => $academic_year,
             "remarks" => $remarks,
           ];
-        }
 
-        if ($id) {
-          if ($resp = $this->admission_model->update($id, $data)) {
-            echo jresp(true, "Update successfully", $resp);
+          if ($id) {
+            if ($resp = $this->admission_model->update($id, $data)) {
+              alert("success", "Admission updated");
+            } else {
+              alert("info", "Admission no changes");
+            }
           } else {
-            echo jresp(false, "Update failed");
+            if ($resp = $this->admission_model->insert($data)) {
+              alert("success", "Admission successfully");
+            } else {
+              alert("danger", "Admission failed");
+            }
           }
         } else {
-          if ($resp = $this->admission_model->insert($data)) {
-            echo jresp(true, "Admission successfully", $resp);
-          } else {
-            echo jresp(false, "Admission failed");
-          }
+          alert("danger", "Given student not exist");
         }
 
         redirect(base_url("student_admission"));

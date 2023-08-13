@@ -21,6 +21,8 @@ class Admission_model extends CI_Model
   // ------------------------------------------------------------------------
 
   private $table = "student_admission";
+  private $table_class = "class";
+  private $table_student = "students";
 
   public function __construct()
   {
@@ -60,8 +62,11 @@ class Admission_model extends CI_Model
 
   public function get_all()
   {
-    $this->db->select("*");
-    $this->db->from($this->table);
+    $this->db->select("sa.*, s.name, c.class as current_class, c2.class as prev_class");
+    $this->db->from("{$this->table} sa");
+    $this->db->join("{$this->table_student} s", "s.id = sa.student_id");
+    $this->db->join("{$this->table_class} c", "c.id = sa.current_class_id");
+    $this->db->join("{$this->table_class} c2", "c2.id = sa.prev_class_id ");
     return $this->db->get()->result();
   }
 

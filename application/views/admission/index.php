@@ -22,9 +22,7 @@
                         <thead>
                             <tr>
                                 <th> # </th>
-                                <th> ID </th>
                                 <th> Name </th>
-                                <th> Student Id </th>
                                 <th> Previous Classes </th>
                                 <th> Current Classes </th>
                                 <th> Remarks </th>
@@ -39,11 +37,9 @@
                             ?>
                                     <tr>
                                         <td><?= ++$k ?></td>
-                                        <td><?= $d->id ?></td>
                                         <td><a href="<?= base_url("student_admission/save/{$d->id}") ?>"><?= $d->name ?></a></td>
-                                        <td><?= $d->student_id ?></td>
-                                        <td><?= $d->prev_class_id ?></td>
-                                        <td><?= $d->current_class_id ?></td>
+                                        <td><?= $d->prev_class ?></td>
+                                        <td><?= $d->current_class ?></td>
                                         <td><?= $d->remarks ?></td>
                                         <td><a href="<?= base_url("student_admission/delete/{$d->id}") ?>" class="btn btn-xs btn-danger del-record" id="del-record">Delete</a></td>
 

@@ -19,12 +19,13 @@
                 <h4 class="card-title">Admission</h4>
                 <p class="card-description"> </p>
 
-                <form class="forms-sample" id="from">
+                <form class="forms-sample" method="post">
                     <div class="row">
 
                         <div class="form-group col-md-6">
                             <label>Student Name</label>
                             <select class="form-control" style="width:100%" id="student_id" name="student_id">
+                                <option value="">Select</option>
                                 <?php foreach ($students as $student) : ?>
                                     <option value="<?= $student->id ?>"><?= $student->name ?></option>
                                 <?php endforeach; ?>
@@ -49,8 +50,21 @@
                         <?php echo form_error('current_class_id', '<div class="error">', '</div>'); ?>
 
                         <div class="form-group col-md-6">
-                            <label for="mobile">Remarks</label>
-                            <input type="text" class="form-control" id="remarks" name="remarks" required>
+                            <label for="academic_year">Adademic Year</label>
+                            <select class="form-control" id="academic_year" name="academic_year" required>
+                                <?php
+                                $year = (date("Y") - 1);
+                                $ylimit = 3;
+                                for ($i = 0; $i < $ylimit; $i++) : ?>
+                                    <option value="<?= ($year + $i) ?>" <?= date("Y") == ($year + $i) ? " selected " : "" ?> ><?= ($year + $i) ?></option>
+                                    <?php endfor; ?>
+                            </select>
+                        </div>
+                        <?php echo form_error('academic_year', '<div class="error">', '</div>'); ?>
+
+                        <div class="form-group col-md-12">
+                            <label for="remarks">Remarks</label>
+                            <textarea class="form-control" name="remarks" id="remarks" rows="5"></textarea>
                         </div>
                         <?php echo form_error('remarks', '<div class="error">', '</div>'); ?>
 
@@ -74,45 +88,15 @@
                 success: function(resp) {
                     if (resp.status == true) {
                         $("#prev_class").text(resp.response.class);
-
-                    } else {}
+                    } else {
+                        // alert("");
+                    }
                 },
                 error: function(eror) {
                     alert("Server internal error");
                 }
             });
         });
-
-
-        $("#from").submit(function(e) {
-            e.preventDefault();
-            let student_id = $('#student_id').val();
-            let prev_class = $('#prev_class').val();
-            let current_class_id = $('#current_class_id').val();
-            let remarks = $('#remarks').val();
-
-            $.ajax({
-                "url": `<?= base_url("student_admission/save") ?>`,
-                "type": "post",
-                "dataType": "json",
-                data: {
-                    student_id: student_id,
-                    prev_class: prev_class,
-                    current_class_id: current_class_id,
-                    remarks: remarks
-                },
-                success: function(resp) {
-                    console.log(resp)
-                    if (resp) {
-                        alert("Admission successfully");
-                    } else {
-                        alert("Admission failed");
-                    }
-                },
-
-            })
-
-        })
 
     });
 </script>
