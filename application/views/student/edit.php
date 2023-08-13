@@ -1,4 +1,3 @@
-
 <div class="page-header">
     <h3 class="page-title"> Student Update </h3>
     <nav aria-label="breadcrumb">
@@ -24,18 +23,24 @@
                         <div class="form-group col-md-6">
                             <label for="name">Name</label>
                             <input type="text" class="form-control" id="name" name="name" placeholder="Name" value="<?= $student->name ?>">
+                            <?php echo form_error('name', '<div class="error">', '</div>'); ?>
                         </div>
                         <div class="form-group col-md-6">
                             <label for="email">Email address</label>
                             <input type="email" class="form-control" id="email" name="email" placeholder="Email" value="<?= $student->email ?>">
+                            <?php echo form_error('email', '<div class="error">', '</div>'); ?>
                         </div>
                         <div class="form-group col-md-6">
                             <label for="mobile">Mobile</label>
                             <input type="number" class="form-control" id="mobile" name="mobile" placeholder="Mobile" value="<?= $student->mobile ?>">
+                            <?php echo form_error('mobile', '<div class="error">', '</div>'); ?>
                         </div>
+
+                       
                         <div class="form-group col-md-6">
                             <label for="dob">DOB</label>
                             <input type="date" class="form-control" id="dob" name="dob" value="<?= $student->dob ?>">
+                            <?php echo form_error('dob', '<div class="error">', '</div>'); ?>
                         </div>
                         <div class="form-group col-md-6">
                             <label for="gender">Gender</label>
@@ -43,6 +48,7 @@
                                 <option value="Male">Male</option>
                                 <option value="Female">Female</option>
                             </select>
+                            <?php echo form_error('gender', '<div class="error">', '</div>'); ?>
                         </div>
                         <div class="form-group col-md-6">
                             <label>Photo</label>
@@ -57,6 +63,7 @@
                         <div class="form-group col-md-12">
                             <label for="address">Address</label>
                             <textarea class="form-control" id="address" name="address" rows="4"><?= $student->address ?></textarea>
+                            <?php echo form_error('address', '<div class="error">', '</div>'); ?>
                         </div>
                     </div>
                     <button type="submit" class="btn btn-primary mr-2">Submit</button>

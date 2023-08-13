@@ -128,7 +128,7 @@
                     </a>
                     <div class="collapse" id="ui-basic">
                         <ul class="nav flex-column sub-menu">
-                            <li class="nav-item"> <a class="nav-link" href="<?= base_url('student_admission/save') ?>">Admission</a></li>
+                            <li class="nav-item"> <a class="nav-link" href="<?= base_url('student_admission/') ?>">Admission</a></li>
                             <li class="nav-item"> <a class="nav-link" href="<?= base_url('student_class') ?>">Classes</a></li>
                             <li class="nav-item"> <a class="nav-link" href="<?= base_url('yeers') ?>">Student Year</a></li>
                             <li class="nav-item"> <a class="nav-link" href="#">Student registration</a></li>

@@ -31,7 +31,8 @@ class Student extends CI_Controller
   private function view($id = null)
   {
     if ($student = $this->student_model->get($id)) {
-      view('student/edit', compact("student"), "Portal | Student Edit");
+      $class = $this->student_class_model->get_all();
+      view('student/edit', compact("student","class"), "Portal | Student Edit");
     } else {
       $classes = $this->student_class_model->get_all();
       view('student/create', compact("classes"), "Portal | Student Create");
