@@ -43,14 +43,23 @@
                             <?php echo form_error('dob', '<div class="error">', '</div>'); ?>
 
                         </div>
+                       
+
+
                         <div class="form-group col-md-6">
                             <label for="gender">Gender</label>
+
                             <select class="form-control" id="gender" name="gender" value="<?= $teachers->gender ?>">
-                                <option value="Male">Male</option>
-                                <option value="Female">Female</option>
-                                <?php echo form_error('gender', '<div class="error">', '</div>'); ?>
+                                <option value="Male" <?php if ($teachers->gender == 'Male') {
+                                                            echo 'selected';
+                                                        } ?>>Male</option>
+                                <option value="Female" <?php if ($teachers->gender == 'Female') {
+                                                            echo 'selected';
+                                                        } ?>>Female</option>
                             </select>
                         </div>
+
+
                         <div class="form-group col-md-6">
                             <label>Photo</label>
                             <input type="file" name="photo" class="file-upload-default">
@@ -65,7 +74,7 @@
                         </div>
                         <div class="form-group col-md-12">
                             <label for="address">Address</label>
-                            <textarea class="form-control" id="address" name="address" rows="4"><?= $teachers->address?></textarea>
+                            <textarea class="form-control" id="address" name="address" rows="4"><?= $teachers->address ?></textarea>
                             <?php echo form_error('address', '<div class="error">', '</div>'); ?>
 
                         </div>

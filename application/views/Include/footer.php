@@ -36,8 +36,7 @@
  <!-- my jquery file -->
  <script src="<?= base_url('assets/js/my_jquery.js') ?>"></script>
  <script src="<?= base_url('assets/js/ajax.js') ?>"></script>
-
-
+ <!-- <script src="<?= base_url('assets/my_js/crud_subject.js') ?>"></script> -->
 
 
  </body>

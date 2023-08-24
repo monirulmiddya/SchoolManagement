@@ -1,9 +1,9 @@
 <!-- Page header -->
 <div class="page-header">
-    <h3 class="page-title">Student Yeers</h3>
+    <h3 class="page-title">Student Years</h3>
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
-            <li class="breadcrumb-item active " aria-current="page"><a href="#">Students Yeers</a></li>
+            <li class="breadcrumb-item active " aria-current="page"><a href="#">Students Years</a></li>
         </ol>
     </nav>
 </div>
@@ -13,9 +13,9 @@
     <div class="col-lg-12 grid-margin stretch-card">
         <div class="card">
             <div class="card-body">
-                <h4 class="card-title">Yeers</h4>
+                <h4 class="card-title">Years</h4>
                 <p class="card-description">
-                    <a href="<?= base_url('yeers/save') ?>" class="btn btn-xs btn-danger ">Create New</a>
+                    <a href="<?= base_url('years/save') ?>" class="btn btn-xs btn-danger ">Create New</a>
                 </p>
                 <div class="table-responsive">
                     <table class="table table-dark">
@@ -23,7 +23,7 @@
                             <tr>
                                 <th> # </th>
                                 <th> Id </th>
-                                <th> Yeers </th>
+                                <th> Years </th>
                                 <th> Created_at </th>
                                 <th> Update_date </th>
                                 <th> Action </th>
@@ -31,17 +31,17 @@
                         </thead>
                         <tbody>
                             <?php
-                            if ($yeers) :
+                            if ($years) :
 
-                                foreach ($yeers as $k => $d) :
+                                foreach ($years as $k => $d) :
                             ?>
                                     <tr>
                                         <td><?= ++$k ?></td>
                                         <td><?= $d->id ?></td>
-                                        <td><a href="<?= base_url("yeers/save/{$d->id}") ?>"><?= $d->name ?></a></td>
+                                        <td><a href="<?= base_url("years/save/{$d->id}") ?>"><?= $d->name ?></a></td>
                                         <td><?= $d->created_at ?></td>
                                         <td><?= $d->updated_at ?></td>
-                                        <td><a href="<?= base_url("yeers/delete/{$d->id}") ?>" class="btn btn-xs btn-danger del-record">Delete</a></td>
+                                        <td><a href="<?= base_url("years/delete/{$d->id}") ?>" class="btn btn-xs btn-danger del-record">Delete</a></td>
                                     </tr>
                             <?php endforeach;
                             endif; ?>

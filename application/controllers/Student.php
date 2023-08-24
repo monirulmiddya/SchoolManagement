@@ -32,7 +32,9 @@ class Student extends CI_Controller
   {
     if ($student = $this->student_model->get($id)) {
       $class = $this->student_class_model->get_all();
-      view('student/edit', compact("student","class"), "Portal | Student Edit");
+      $data = $this->student_class_model->get($id);
+      pp($data);
+      view('student/edit', compact("student", "class", "data"), "Portal | Student Edit");
     } else {
       $classes = $this->student_class_model->get_all();
       view('student/create', compact("classes"), "Portal | Student Create");
@@ -71,7 +73,7 @@ class Student extends CI_Controller
             "address" => $this->input->post("address"),
           ];
 
-
+// pp($data);
           if ($id) {
             if ($this->student_model->update($id, $data)) {
               alert("success", "Student updated Successfully");

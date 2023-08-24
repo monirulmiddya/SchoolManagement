@@ -18,19 +18,17 @@
                     <a href="<?= base_url('student/save') ?>" class="btn btn-xs btn-danger ">Create New</a>
                 </p>
                 <div class="table-responsive">
-                    <table class="table table-dark">
+                    <table class="table table-dark  ">
                         <thead>
                             <tr>
                                 <th> # </th>
                                 <th> Name </th>
                                 <th> Mobile </th>
                                 <th> Email </th>
-                                <th> Dob </th>
+                                <th> Date Of Birth </th>
                                 <th> Gender </th>
                                 <th> Address </th>
-                                <th> Action </th>
-                                <th> Payment </th>
-                                <th> Dwonload </th>
+                                <th class="text-center"> Action </th>
                             </tr>
                         </thead>
                         <tbody>
@@ -47,11 +45,7 @@
                                         <td><?= $d->dob ?></td>
                                         <td><?= $d->gender ?></td>
                                         <td><?= $d->address ?></td>
-                                        <td><a href="<?= base_url("student/delete/{$d->id}") ?>" class="btn btn-xs btn-danger del-record">Delete</a></td>
-
-                                        <td><a href="<?= base_url("student_payment/create/{$d->id}") ?>" class="btn btn-xs btn-primary">Pay</a></td>
-
-                                        <td><a href="<?= base_url("student_payment/invoice/{$d->id}") ?>" class="btn btn-xs btn-primary">Invoice</a></td>
+                                        <td><a href="<?= base_url("student/delete/{$d->id}") ?>" class="btn btn-xs btn-danger del-record">Delete</a> <a href="<?= base_url("student_payment/create/{$d->id}") ?>" class="btn btn-xs btn-primary">Pay</a> <a href="<?= base_url("student_payment/invoice/{$d->id}") ?>" class="btn btn-xs btn-primary">Invoice</a> </td>
 
                                     </tr>
                             <?php endforeach;

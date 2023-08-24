@@ -36,21 +36,44 @@
                             <?php echo form_error('mobile', '<div class="error">', '</div>'); ?>
                         </div>
 
-                       
                         <div class="form-group col-md-6">
                             <label for="dob">DOB</label>
                             <input type="date" class="form-control" id="dob" name="dob" value="<?= $student->dob ?>">
                             <?php echo form_error('dob', '<div class="error">', '</div>'); ?>
                         </div>
+
                         <div class="form-group col-md-6">
                             <label for="gender">Gender</label>
+                            
                             <select class="form-control" id="gender" name="gender" value="<?= $student->gender ?>">
-                                <option value="Male">Male</option>
-                                <option value="Female">Female</option>
+                                <option value="Male" <?php if ($student->gender == 'Male') {
+                                                            echo 'selected';
+                                                        } ?>>Male</option>
+                                <option value="Female" <?php if ($student->gender == 'Female') {
+                                                            echo 'selected';
+                                                        } ?>>Female</option>
                             </select>
-                            <?php echo form_error('gender', '<div class="error">', '</div>'); ?>
                         </div>
+
+
                         <div class="form-group col-md-6">
+                            <label>Classes</label>
+                            <select class="form-control" name="class_id" style=" width:100%">
+                                <option <?php if (
+                                            $student->class_id ==
+                                            $student->class_id
+                                        ) echo "selected"; ?> value="<?php echo $student->class_id ?>">
+                                    <?php echo $student->class; ?> </option>
+
+                                <?php foreach ($class as $c) : ?>
+                                    <option value="<?= $c->id ?>"><?= $c->class ?></option>
+
+                                <?php endforeach; ?>
+                            </select>
+                        </div>
+
+
+                        <div class="form-group col-md-12">
                             <label>Photo</label>
                             <input type="file" name="photo" class="file-upload-default">
                             <div class="input-group col-xs-12">

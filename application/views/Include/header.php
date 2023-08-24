@@ -25,7 +25,7 @@
     <link href="<?= base_url('assets/images/favicon.png') ?>" rel="shortcut icon" />
 
     <!-- plugins:js -->
- <script src="<?= base_url('assets/vendors/js/vendor.bundle.base.js') ?>"></script>
+    <script src="<?= base_url('assets/vendors/js/vendor.bundle.base.js') ?>"></script>
 
 
 </head>
@@ -37,7 +37,7 @@
         <nav class="sidebar sidebar-offcanvas" id="sidebar">
             <div class="sidebar-brand-wrapper d-none d-lg-flex align-items-center justify-content-center fixed-top">
                 <a class="sidebar-brand brand-logo" href="#"><img src="<?= base_url('assets/images/logo.svg') ?>" alt="logo" /></a>
-                <a class="sidebar-brand brand-logo-mini" href="#"><img src="<?=base_url('assets/images/logo-mini.svg') ?>" alt="logo" /></a>
+                <a class="sidebar-brand brand-logo-mini" href="#"><img src="<?= base_url('assets/images/logo-mini.svg') ?>" alt="logo" /></a>
             </div>
             <ul class="nav">
                 <li class="nav-item profile">
@@ -109,6 +109,7 @@
                         <span class="menu-title">Student</span>
                     </a>
                 </li>
+
                 <li class="nav-item menu-items">
                     <a class="nav-link" href="<?= base_url('teacher') ?>">
                         <span class="menu-icon">
@@ -130,7 +131,7 @@
                         <ul class="nav flex-column sub-menu">
                             <li class="nav-item"> <a class="nav-link" href="<?= base_url('student_admission/') ?>">Admission</a></li>
                             <li class="nav-item"> <a class="nav-link" href="<?= base_url('student_class') ?>">Classes</a></li>
-                            <li class="nav-item"> <a class="nav-link" href="<?= base_url('yeers') ?>">Student Year</a></li>
+                            <li class="nav-item"> <a class="nav-link" href="<?= base_url('years') ?>">Student Years</a></li>
                             <li class="nav-item"> <a class="nav-link" href="#">Student registration</a></li>
                             <li class="nav-item"> <a class="nav-link" href="#">Student Promotion</a></li>
                             <li class="nav-item"> <a class="nav-link" href="#">Student Monthly Fee</a></li>
@@ -140,7 +141,7 @@
                             <li class="nav-item"> <a class="nav-link" href="#">Fee Category</a></li>
                             <li class="nav-item"> <a class="nav-link" href="#">Exam Type </a></li>
                             <li class="nav-item"> <a class="nav-link" href="#">Rell Generate</a></li>
-                            <li class="nav-item"> <a class="nav-link" href="#">Subject</a></li>
+                            <li class="nav-item"> <a class="nav-link" href="<?php echo base_url('subject') ?>">Subject</a></li>
                         </ul>
                     </div>
                 </li>
@@ -275,7 +276,7 @@
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item preview-item">
                                     <div class="preview-thumbnail">
-                                        <img src="<?=base_url('assets/images/faces/face4.jpg')?>" alt="image" class="rounded-circle profile-pic">
+                                        <img src="<?= base_url('assets/images/faces/face4.jpg') ?>" alt="image" class="rounded-circle profile-pic">
                                     </div>
                                     <div class="preview-item-content">
                                         <p class="preview-subject ellipsis mb-1">Mark send you a message</p>

@@ -3,8 +3,8 @@
     <h3 class="page-title"> Admission Create </h3>
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="<?= base_url('admission') ?>">Student</a></li>
-            <li class="breadcrumb-item"><a href="<?= base_url('student_admission/save') ?>">Admission</a></li>
+            <li class="breadcrumb-item"><a href="<?= base_url('student') ?>">Student</a></li>
+            <li class="breadcrumb-item"><a href="<?= base_url('student_admission') ?>">Admission</a></li>
             <li class="breadcrumb-item active" aria-current="page">Create</li>
         </ol>
     </nav>

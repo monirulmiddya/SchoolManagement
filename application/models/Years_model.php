@@ -15,12 +15,12 @@ defined('BASEPATH') or exit('No direct script access allowed');
  *
  */
 
-class Yeers_model extends CI_Model
+class Years_model extends CI_Model
 {
 
     // ------------------------------------------------------------------------
 
-    private $table = "yeers";
+    private $table = "years";
 
     public function __construct()
     {
