@@ -80,7 +80,6 @@ class Teacher extends CI_Controller
                             alert("danger", "Teacher create failed");
                         }
                     }
-
                     redirect(base_url("teacher"));
                 } else {
                     $this->view($id);

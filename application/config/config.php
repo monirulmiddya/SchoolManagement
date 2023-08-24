@@ -537,3 +537,9 @@ $config['proxy_ips'] = '';
 #--------------------------------------------------------------------
 $config['stripe_key'] = 'pk_test_51H7bbSE2RcKvfXD4D';
 $config['stripe_secret'] = 'sk_test_51H7bbSE2RcKvfX';
+
+
+#--------------------------------------------------------------------
+#  mPDF
+#--------------------------------------------------------------------
+$config['composer_autoload'] = 'vendor/autoload.php';

@@ -1,5 +1,5 @@
 <?php
-defined('BASEPATH') or exit('No direct script access allowed');
+defined ('BASEPATH') or exit('No direct script access allowed');
 
 
 /**
@@ -15,7 +15,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
  * @return    ...
  *
  */
-
+  
 class Student_admission extends CI_Controller
 {
   private $ud = [];
@@ -23,14 +23,15 @@ class Student_admission extends CI_Controller
   {
     parent::__construct();
     $this->load->model('student_model');
-    $this->load->model(['student_class_model', 'student_class_model', 'admission_model']);
+    $this->load->model(['student_class_model', 'student_class_model', 'admission_model', 'years_model']);
     $this->ud = has_loggedIn();
   }
 
   private function view($id = null)
   {
-    if ($data = $this->admission_model->get($id)) {
-      view('admission/edit', compact("data"), "Portal | Admission Create");
+    if ($students = $this->admission_model->get_student($id) ) {
+      $class = $this->student_class_model->get_all();
+      view('admission/edit', compact('students', 'class'), "Portal | Admission Create");
     } else {
       $students = $this->student_model->get_all();
       $classes = $this->student_class_model->get_all();
@@ -41,8 +42,10 @@ class Student_admission extends CI_Controller
   public function index()
   {
     $students = $this->admission_model->get_all();
-    // pp($students);
-    view('admission/index', compact("students"), "Portal | Admission Create");
+    $classes = $this->student_class_model->get_all();
+    $years = $this->years_model->get_all();
+    // pp($years);
+    view('admission/index', compact("students", 'classes', 'years'), "Portal | Admission Create");
   }
 
   public function save($id = null)
@@ -51,16 +54,18 @@ class Student_admission extends CI_Controller
 
       if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
-        // $this->form_validation->set_rules("student_id", "Name", "trim|required");
-        // $this->form_validation->set_rules("current_class_id", "Current Classes", "trim|required");
-        // $this->form_validation->set_rules("remarks", "Remarks", "trim|required");
+        $this->form_validation->set_rules("student_id", "Name", "trim|required");
+        $this->form_validation->set_rules("current_class_id", "Current Classes", "trim|required");
+        $this->form_validation->set_rules("remarks", "Remarks", "trim|required");
         $student_id = $this->input->post('student_id');
         $current_class_id = $this->input->post('current_class_id');
         $remarks = $this->input->post('remarks');
         $academic_year = $this->input->post('academic_year');
 
+        // pp($_POST);
 
-        // if ($this->form_validation->run() == true) {
+
+        if ($this->form_validation->run() == true) {
 
         if ($student = $this->student_model->get($student_id)) {
           $data = [
@@ -70,7 +75,7 @@ class Student_admission extends CI_Controller
             "academic_year" => $academic_year,
             "remarks" => $remarks,
           ];
-
+          // pp($student);
           if ($id) {
             if ($resp = $this->admission_model->update($id, $data)) {
               alert("success", "Admission updated");
@@ -89,9 +94,9 @@ class Student_admission extends CI_Controller
         }
 
         redirect(base_url("student_admission"));
-        // } else {
-        //   $this->view($id);
-        // }
+        } else {
+          $this->view($id);
+        }
       } else {
         $this->view($id);
       }
@@ -116,6 +121,15 @@ class Student_admission extends CI_Controller
       }
     } catch (\Throwable $th) {
       redirect(base_url("student_admission"));
+    }
+  }
+
+  public function get($class_id = null, $year=null)
+  {
+    if ($data = $this->admission_model->all_get($class_id,$year)) {
+      echo json_encode($data);
+    } else {
+      echo jresp(false, "Data not available");
     }
   }
 }

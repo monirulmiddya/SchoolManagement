@@ -43,6 +43,7 @@
                                     <input type="email" name="email" class="form-control p_input" value="<?php echo set_value('email') ?>">
                                     <?php echo form_error('email', '<div class="error">', '</div>') ?>
                                 </div>
+                                
                                 <div class="form-group">
                                     <label>Password</label>
                                     <input type="password" name="password" class="form-control p_input">

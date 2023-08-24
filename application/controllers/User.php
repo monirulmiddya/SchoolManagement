@@ -64,6 +64,8 @@ class User extends CI_Controller
 						'id' => $user->id,
 						'username' => $user->username,
 						'email' => $user->email,
+						'name'=>$user->name,
+						'user_type' => $user->user_type,
 						'logged_in' => TRUE
 					);
 					$this->session->set_userdata("loggedIn", $userdata); //session set ($userdata)
@@ -108,10 +110,5 @@ class User extends CI_Controller
 		}
 	}
 
-	public function test()
-	{
-		$data["name"] = "Monirul Middya";
-		view("demo", $data, "Portal | Demp page");
-		
-	}
+	
 }

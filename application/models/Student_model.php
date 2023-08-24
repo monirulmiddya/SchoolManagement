@@ -53,7 +53,7 @@ class Student_model extends CI_Model
 
   public function get($id)
   {
-    $this->db->select("s.*, c.class");
+    $this->db->select("s.*, c.class,c.id");
     $this->db->from("{$this->table} s");
     $this->db->join("{$this->table_class} c", "s.class_id = c.id", "left");
     $this->db->where("s.id", $id);
@@ -64,9 +64,21 @@ class Student_model extends CI_Model
   {
     $this->db->select("*");
     $this->db->from($this->table);
+    $this->db->order_by("name", "asc");
     return $this->db->get()->result();
   }
 
+  
+
+
+  // Test api search whit name
+  public function search($name)
+  {
+    $this->db->select('*');
+    $this->db->from($this->table);
+    $this->db->like('name',$name);
+    return $this->db->get()->result();
+  }
   // ------------------------------------------------------------------------
 
 }

@@ -17,16 +17,13 @@
                 <p class="card-description">
                     <a href="<?= base_url('student_class/save') ?>" class="btn btn-xs btn-danger ">Create New</a>
                 </p>
-                <div class="table-responsive">
-                    <table class="table table-dark">
+                
+                    <table class="table table-bordered" style="width:100%">
                         <thead>
                             <tr>
-                                <th> # </th>
-                                <th> Id </th>
-                                <th> Class </th>
-                                <th> Created_at </th>
-                                <th> Update_date </th>
-                                <th> Action </th>
+                                <th> S.No </th>
+                                <th> Classes </th>
+                                <th style="text-align:right;"> Action </th>
                             </tr>
                         </thead>
                         <tbody>
@@ -37,18 +34,22 @@
                             ?>
                                     <tr>
                                         <td><?= ++$k ?></td>
-                                        <td><?=$d->id?></td>
-                                        <td><a href="<?= base_url("student_class/save/{$d->id}") ?>"><?= $d->class ?></a></td>
-                                        <td><?= $d->created_at ?></td>
-                                        <td><?= $d->update_at ?></td>
-                                        <td><a href="<?= base_url("student_class/delete/{$d->id}") ?>" class="btn btn-xs btn-danger del-record">Delete</a></td>
+                                        <td><?= $d->class ?></td>
+                                        <td style="text-align:right;">
+
+                                            <a class="btn btn-xs btn-primary " href="<?= base_url("student_class/save/{$d->id}") ?>">Edit</a>
+
+                                            <a href="<?= base_url("student_class/delete/{$d->id}") ?>" class="btn btn-xs btn-danger del-record ">Delete</a>
+
+                                        </td>
                                     </tr>
                             <?php endforeach;
                             endif; ?>
                         </tbody>
                     </table>
-                </div>
+                
             </div>
         </div>
     </div>
 </div>
+

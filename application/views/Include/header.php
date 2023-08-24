@@ -24,8 +24,16 @@
     <link href="<?= base_url('assets/images/favicon.png') ?>" rel="stylesheet" />
     <link href="<?= base_url('assets/images/favicon.png') ?>" rel="shortcut icon" />
 
+    <!-- data tabile -->
+
+    <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+
+    <!-- data tabile  -->
+    <link href="  https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap4.min.css" rel="stylesheet" />
+
+
     <!-- plugins:js -->
- <script src="<?= base_url('assets/vendors/js/vendor.bundle.base.js') ?>"></script>
+    <script src="<?= base_url('assets/vendors/js/vendor.bundle.base.js') ?>"></script>
 
 
 </head>
@@ -37,7 +45,7 @@
         <nav class="sidebar sidebar-offcanvas" id="sidebar">
             <div class="sidebar-brand-wrapper d-none d-lg-flex align-items-center justify-content-center fixed-top">
                 <a class="sidebar-brand brand-logo" href="#"><img src="<?= base_url('assets/images/logo.svg') ?>" alt="logo" /></a>
-                <a class="sidebar-brand brand-logo-mini" href="#"><img src="<?=base_url('assets/images/logo-mini.svg') ?>" alt="logo" /></a>
+                <a class="sidebar-brand brand-logo-mini" href="#"><img src="<?= base_url('assets/images/logo-mini.svg') ?>" alt="logo" /></a>
             </div>
             <ul class="nav">
                 <li class="nav-item profile">
@@ -48,8 +56,8 @@
                                 <span class="count bg-success"></span>
                             </div>
                             <div class="profile-name">
-                                <h5 class="mb-0 font-weight-normal"><?php echo 'Najibul Middya'; ?></h5>
-                                <span> <?php echo 'Admin' ?></span>
+                                <h5 class="mb-0 font-weight-normal"><?php echo $_SESSION['loggedIn']['username']; ?></h5>
+                                <span> <?php echo 'Admin'; ?></span>
                             </div>
                         </div>
                         <a href="#" id="profile-dropdown" data-toggle="dropdown"><i class="mdi mdi-dots-vertical"></i></a>
@@ -106,15 +114,24 @@
                         <span class="menu-icon">
                             <i class="mdi mdi-playlist-play"></i>
                         </span>
-                        <span class="menu-title">Student</span>
+                        <span class="menu-title">Students</span>
                     </a>
                 </li>
+                <li class="nav-item menu-items">
+                    <a class="nav-link" href="<?= base_url('student_admission') ?>">
+                        <span class="menu-icon">
+                            <i class="mdi mdi-chart-bar"></i>
+                        </span>
+                        <span class="menu-title">Admission</span>
+                    </a>
+                </li>
+
                 <li class="nav-item menu-items">
                     <a class="nav-link" href="<?= base_url('teacher') ?>">
                         <span class="menu-icon">
                             <i class="mdi mdi-playlist-play"></i>
                         </span>
-                        <span class="menu-title">Teacher</span>
+                        <span class="menu-title">Teachers</span>
                     </a>
                 </li>
 
@@ -128,19 +145,27 @@
                     </a>
                     <div class="collapse" id="ui-basic">
                         <ul class="nav flex-column sub-menu">
-                            <li class="nav-item"> <a class="nav-link" href="<?= base_url('student_admission/') ?>">Admission</a></li>
+                            <li class="nav-item"> <a class="nav-link" href="<?= base_url('student_admission') ?>">Admission</a></li>
                             <li class="nav-item"> <a class="nav-link" href="<?= base_url('student_class') ?>">Classes</a></li>
-                            <li class="nav-item"> <a class="nav-link" href="<?= base_url('yeers') ?>">Student Year</a></li>
-                            <li class="nav-item"> <a class="nav-link" href="#">Student registration</a></li>
-                            <li class="nav-item"> <a class="nav-link" href="#">Student Promotion</a></li>
-                            <li class="nav-item"> <a class="nav-link" href="#">Student Monthly Fee</a></li>
-                            <li class="nav-item"> <a class="nav-link" href="#">Student Exam Fee</a></li>
-                            <li class="nav-item"> <a class="nav-link" href="#">Student Monthly Fee</a></li>
+                            <li class="nav-item"> <a class="nav-link" href="<?= base_url('years') ?>">Student Years</a></li>
+                            <li class="nav-item"> <a class="nav-link" href="<?php echo base_url('subject') ?>">Set Subject</a></li>
+                            <li class="nav-item"> <a class="nav-link" href="<?php echo base_url('subject_teacher') ?>">Subject Teacher</a></li>
+                            <li class="nav-item"> <a class="nav-link" href="<?= base_url('StudentMonthlyFee') ?>">Student Monthly Fee</a></li>
+                            <li class="nav-item"> <a class="nav-link" href="<?= base_url('RollGenerate') ?>">Roll Generate</a></li>
+                            <li class="nav-item"> <a class="nav-link" href="<?= base_url('ExamType') ?>">Exam Type </a></li>
+                            <li class="nav-item"> <a class="nav-link" href="<?= base_url('Routine') ?>">Exam Routine</a></li>
+                            <li class="nav-item"> <a class="nav-link" href="<?= base_url('Result') ?>"> Result</a></li>
+
+                            <li class="nav-item"> <a class="nav-link" href="<?= base_url('attendance') ?>">Attendance</a></li>
+
+
                             <li class="nav-item"> <a class="nav-link" href="#">Student Exam Fee</a></li>
                             <li class="nav-item"> <a class="nav-link" href="#">Fee Category</a></li>
-                            <li class="nav-item"> <a class="nav-link" href="#">Exam Type </a></li>
-                            <li class="nav-item"> <a class="nav-link" href="#">Rell Generate</a></li>
-                            <li class="nav-item"> <a class="nav-link" href="#">Subject</a></li>
+
+                            <li class="nav-item"> <a class="nav-link" href="#">Student registration</a></li>
+                            <li class="nav-item"> <a class="nav-link" href="#">Student Promotion</a></li>
+
+
                         </ul>
                     </div>
                 </li>
@@ -275,7 +300,7 @@
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item preview-item">
                                     <div class="preview-thumbnail">
-                                        <img src="<?=base_url('assets/images/faces/face4.jpg')?>" alt="image" class="rounded-circle profile-pic">
+                                        <img src="<?= base_url('assets/images/faces/face4.jpg') ?>" alt="image" class="rounded-circle profile-pic">
                                     </div>
                                     <div class="preview-item-content">
                                         <p class="preview-subject ellipsis mb-1">Mark send you a message</p>
@@ -357,7 +382,7 @@
                             <a class="nav-link" id="profileDropdown" href="#" data-toggle="dropdown">
                                 <div class="navbar-profile">
                                     <img class="img-xs rounded-circle" src="<?= base_url('assets/images/faces/face15.jpg') ?>" alt="">
-                                    <p class="mb-0 d-none d-sm-block navbar-profile-name"><?php echo 'Najibul Middya' ?></p>
+                                    <p class="mb-0 d-none d-sm-block navbar-profile-name"><?php echo $_SESSION['loggedIn']['username']; ?></p>
                                     <i class="mdi mdi-menu-down d-none d-sm-block"></i>
                                 </div>
                             </a>

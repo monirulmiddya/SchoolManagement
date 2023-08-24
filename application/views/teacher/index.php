@@ -18,7 +18,7 @@
                     <a href="<?= base_url('teacher/save') ?>" class="btn btn-xs btn-danger ">Create New</a>
                 </p>
                 <div class="table-responsive">
-                    <table class="table table-dark">
+                    <table id="example" class="table table-striped table-bordered" style="width:100%">
                         <thead>
                             <tr>
                                 <th> # </th>
@@ -56,3 +56,8 @@
         </div>
     </div>
 </div>
+
+
+<script>
+    new DataTable('#example');
+</script>
