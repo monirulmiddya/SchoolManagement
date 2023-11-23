@@ -34,6 +34,10 @@ class Student extends CI_Controller
     if ($student = $this->student_model->get($id)) {
       $class = $this->student_class_model->get_all();
       $data = $this->student_class_model->get($id);
+<<<<<<< HEAD
+=======
+      pp($data);
+>>>>>>> 8cc2f5f303ff25e226038f4c34e860688903b489
       view('student/edit', compact("student", "class", "data"), "Portal | Student Edit");
     } else {
       $classes = $this->student_class_model->get_all();
@@ -93,7 +97,7 @@ class Student extends CI_Controller
             "photo" => $path,
           ];
 
-
+// pp($data);
           if ($id) {
             if ($this->student_model->update($id, $stu_data)) {
               alert("success", "Student updated Successfully");

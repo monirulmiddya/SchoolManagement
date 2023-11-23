@@ -63,6 +63,10 @@ class Student_admission extends CI_Controller
         $academic_year = $this->input->post('academic_year');
 
         // pp($_POST);
+<<<<<<< HEAD
+=======
+
+>>>>>>> 8cc2f5f303ff25e226038f4c34e860688903b489
 
 
         if ($this->form_validation->run() == true) {
@@ -124,9 +128,15 @@ class Student_admission extends CI_Controller
     }
   }
 
+<<<<<<< HEAD
   public function get($class_id = null, $year=null)
   {
     if ($data = $this->admission_model->all_get($class_id,$year)) {
+=======
+  public function get($class_id = null)
+  {
+    if ($data = $this->admission_model->all_get($class_id)) {
+>>>>>>> 8cc2f5f303ff25e226038f4c34e860688903b489
       echo json_encode($data);
     } else {
       echo jresp(false, "Data not available");

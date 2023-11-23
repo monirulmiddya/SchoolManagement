@@ -4,6 +4,7 @@
         <div class="card">
             <div class="card-body">
                 <h4 class="card-title">All Subject</h4>
+<<<<<<< HEAD
 
 
                 <!-- Filter By Class form -->
@@ -30,6 +31,15 @@
                             <th class="text-light">S.No</th>
                             <th class="text-light">Subject</th>
                             <th class="text-light">Action</th>
+=======
+                <div class="float-right"><a href="javascript:void(0);" class="btn btn-primary" data-toggle="modal" data-target="#addEmpModal"><span class="fa fa-plus"></span> Add New</a></div>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Subject</th>
+                            <th scope="col" style="text-align:right;">Action</th>
+>>>>>>> 8cc2f5f303ff25e226038f4c34e860688903b489
                         </tr>
                     </thead>
                     <tbody id="listRecords">
@@ -37,8 +47,11 @@
                     </tbody>
                 </table>
 
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> 8cc2f5f303ff25e226038f4c34e860688903b489
                 <!-- add new emp -->
                 <form id="saveEmpForm" method="post">
                     <div class="modal fade" id="addEmpModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -51,6 +64,7 @@
                                         <span aria-hidden="true">×</span>
                                     </button>
                                 </div>
+<<<<<<< HEAD
 
                                 <div class="modal-body">
 
@@ -63,6 +77,9 @@
                                         </div>
                                     </div>
 
+=======
+                                <div class="modal-body">
+>>>>>>> 8cc2f5f303ff25e226038f4c34e860688903b489
                                     <div class="form-group row">
                                         <label class="col-md-2 col-form-label">Subject*</label>
                                         <div class="col-md-10">
@@ -95,6 +112,7 @@
                                         <span aria-hidden="true">×</span>
                                     </button>
                                 </div>
+<<<<<<< HEAD
 
                                 <div class="modal-body">
                                     <div class="form-group row">
@@ -107,6 +125,8 @@
                                     </div>
                                 </div>
 
+=======
+>>>>>>> 8cc2f5f303ff25e226038f4c34e860688903b489
                                 <div class="modal-body">
                                     <div class="form-group row">
                                         <label class="col-md-2 col-form-label">Subject*</label>
@@ -115,7 +135,10 @@
                                         </div>
                                     </div>
                                 </div>
+<<<<<<< HEAD
 
+=======
+>>>>>>> 8cc2f5f303ff25e226038f4c34e860688903b489
                                 <div class="modal-footer">
 
                                     <input type="hidden" name="empId" id="empId" class="form-control">
@@ -158,6 +181,7 @@
 
 <script>
     $(document).ready(function() {
+<<<<<<< HEAD
         // data tabile 
         $('#filter-By').change(function() {
             example_table.ajax.reload();
@@ -221,12 +245,51 @@
             var name = $('#name').val();
             var class_id = $('#classes').val();
 
+=======
+        listSubject();
+        // list all employee in datatable
+        function listSubject() {
+            $.ajax({
+                type: 'ajax',
+                url: `<?= base_url("/subject/show") ?>`,
+                async: false,
+                dataType: 'json',
+                success: function(data) {
+                    var html = '';
+                    var i;
+                    for (i = 0; i < data.length; i++) {
+                        html += '<tr id="' + data[i].id + '">' +
+                            '<td>' + i + '</td>' +
+                            '<td>' + data[i].name + '</td>' +
+
+                            '<td style="text-align:right;">' +
+                            '<a href="javascript:void(0);" class="btn btn-info btn-sm editRecord" data-id="' + data[i].id + '" data-name="' + data[i].name + '">Edit</a>' +
+                            ' ' +
+                            '<a href="javascript:void(0);" class="btn btn-danger btn-sm deleteRecord" data-id="' + data[i].id + '">Delete</a>' +
+                            '</td>' +
+                            '</tr>';
+                    }
+                    $('#listRecords').html(html);
+                },
+                error: function(eror) {
+                    alert("Server internal error");
+                }
+
+            });
+        }
+
+
+        // save new employee record
+        $('#saveEmpForm').submit('click', function() {
+            var name = $('#name').val();
+>>>>>>> 8cc2f5f303ff25e226038f4c34e860688903b489
             $.ajax({
                 type: "POST",
                 url: `<?= base_url("/subject/save") ?>`,
                 dataType: "JSON",
                 data: {
                     name: name,
+<<<<<<< HEAD
                     class: class_id,
                 },
                 success: function(data) {
@@ -235,10 +298,19 @@
                     $('#addEmpModal').modal('hide');
                     example_table.ajax.reload();
                     // listSubject();
+=======
+
+                },
+                success: function(data) {
+                    $('#name').val("");
+                    $('#addEmpModal').modal('hide');
+                    listSubject();
+>>>>>>> 8cc2f5f303ff25e226038f4c34e860688903b489
                 }
             });
             return false;
         });
+<<<<<<< HEAD
 
 
 
@@ -263,6 +335,14 @@
             });
             $("#empId").val($(this).data('id'));
             $("#empName").val($(this).data('name'));
+=======
+        // show edit modal form with emp data
+        $('#listRecords').on('click', '.editRecord', function() {
+            $('#editEmpModal').modal('show');
+            $("#empId").val($(this).data('id'));
+            $("#empName").val($(this).data('name'));
+
+>>>>>>> 8cc2f5f303ff25e226038f4c34e860688903b489
         });
 
         // save edit record
@@ -281,8 +361,12 @@
                     $("#empId").val("");
                     $("#empName").val("");
                     $('#editEmpModal').modal('hide');
+<<<<<<< HEAD
                     // listSubject();
                     example_table.ajax.reload();
+=======
+                    listSubject();
+>>>>>>> 8cc2f5f303ff25e226038f4c34e860688903b489
                 }
             });
             return false;
@@ -308,8 +392,12 @@
                     $("#" + empId).remove();
                     $('#deleteEmpId').val("");
                     $('#deleteEmpModal').modal('hide');
+<<<<<<< HEAD
                     // listSubject();
                     example_table.ajax.reload();
+=======
+                    listSubject();
+>>>>>>> 8cc2f5f303ff25e226038f4c34e860688903b489
                 }
             });
             return false;

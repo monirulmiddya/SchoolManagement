@@ -22,11 +22,20 @@
                 <form class="forms-sample" method="post">
                     <div class="row">
 
+<<<<<<< HEAD
                         <div class="form-group col-md-6">
                             <label>Student Name</label>
                             <input type="hidden" class="form-control" name="student_id" value="<?= $students->student_id ?>" />
                             <span class="form-control"><?= $students->name ?></span>
                             <?php echo form_error('student_id', '<div class="error text-danger">', '</div>'); ?>
+=======
+
+                        <div class="form-group col-md-6">
+                            <label>Student Name</label>
+                            <input type="hidden" class="form-control" name="student_id" value="<?= $students->student_id ?>" />
+                            <span class="form-control" ><?= $students->name ?></span>
+                            <?php echo form_error('student_id', '<div class="error">', '</div>'); ?>
+>>>>>>> 8cc2f5f303ff25e226038f4c34e860688903b489
                         </div>
 
                         <div class="form-group col-md-6">
@@ -34,7 +43,10 @@
                             <span class="form-control" id="prev_class"><?= $students->prev_class ?></span>
                         </div>
 
+<<<<<<< HEAD
                         
+=======
+>>>>>>> 8cc2f5f303ff25e226038f4c34e860688903b489
 
                         <div class="form-group col-md-6">
                             <label for="mobile">Current Classes</label>
@@ -45,7 +57,11 @@
                                 <?php endforeach; ?>
                             </select>
                         </div>
+<<<<<<< HEAD
                         <?php echo form_error('current_class_id', '<div class="error text-danger">', '</div>'); ?>
+=======
+                        <?php echo form_error('current_class_id', '<div class="error">', '</div>'); ?>
+>>>>>>> 8cc2f5f303ff25e226038f4c34e860688903b489
 
                         <div class="form-group col-md-6">
                             <label for="academic_year">Adademic Year</label>
@@ -58,13 +74,21 @@
                                 <?php endfor; ?>
                             </select>
                         </div>
+<<<<<<< HEAD
                         <?php echo form_error('academic_year', '<div class="error text-danger">', '</div>'); ?>
+=======
+                        <?php echo form_error('academic_year', '<div class="error">', '</div>'); ?>
+>>>>>>> 8cc2f5f303ff25e226038f4c34e860688903b489
 
                         <div class="form-group col-md-12">
                             <label for="remarks">Remarks</label>
                             <textarea class="form-control" name="remarks" id="remarks" rows="5"><?= $students->remarks ?></textarea>
                         </div>
+<<<<<<< HEAD
                         <?php echo form_error('remarks', '<div class="error text-danger">', '</div>'); ?>
+=======
+                        <?php echo form_error('remarks', '<div class="error">', '</div>'); ?>
+>>>>>>> 8cc2f5f303ff25e226038f4c34e860688903b489
 
                     </div>
                     <button type="submit" class="btn btn-primary mr-2">Submit</button>

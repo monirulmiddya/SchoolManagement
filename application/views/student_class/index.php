@@ -21,7 +21,11 @@
                     <table class="table table-bordered" style="width:100%">
                         <thead>
                             <tr>
+<<<<<<< HEAD
                                 <th> S.No </th>
+=======
+                                <th> # </th>
+>>>>>>> 8cc2f5f303ff25e226038f4c34e860688903b489
                                 <th> Classes </th>
                                 <th style="text-align:right;"> Action </th>
                             </tr>

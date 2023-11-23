@@ -117,6 +117,7 @@
                         <span class="menu-title">Students</span>
                     </a>
                 </li>
+
                 <li class="nav-item menu-items">
                     <a class="nav-link" href="<?= base_url('student_admission') ?>">
                         <span class="menu-icon">
@@ -148,6 +149,7 @@
                             <li class="nav-item"> <a class="nav-link" href="<?= base_url('student_admission') ?>">Admission</a></li>
                             <li class="nav-item"> <a class="nav-link" href="<?= base_url('student_class') ?>">Classes</a></li>
                             <li class="nav-item"> <a class="nav-link" href="<?= base_url('years') ?>">Student Years</a></li>
+<<<<<<< HEAD
                             <li class="nav-item"> <a class="nav-link" href="<?php echo base_url('subject') ?>">Set Subject</a></li>
                             <li class="nav-item"> <a class="nav-link" href="<?php echo base_url('subject_teacher') ?>">Subject Teacher</a></li>
                             <li class="nav-item"> <a class="nav-link" href="<?= base_url('StudentMonthlyFee') ?>">Student Monthly Fee</a></li>
@@ -166,6 +168,18 @@
                             <li class="nav-item"> <a class="nav-link" href="#">Student Promotion</a></li>
 
 
+=======
+                            <li class="nav-item"> <a class="nav-link" href="#">Student registration</a></li>
+                            <li class="nav-item"> <a class="nav-link" href="#">Student Promotion</a></li>
+                            <li class="nav-item"> <a class="nav-link" href="#">Student Monthly Fee</a></li>
+                            <li class="nav-item"> <a class="nav-link" href="#">Student Exam Fee</a></li>
+                            <li class="nav-item"> <a class="nav-link" href="#">Student Monthly Fee</a></li>
+                            <li class="nav-item"> <a class="nav-link" href="#">Student Exam Fee</a></li>
+                            <li class="nav-item"> <a class="nav-link" href="#">Fee Category</a></li>
+                            <li class="nav-item"> <a class="nav-link" href="#">Exam Type </a></li>
+                            <li class="nav-item"> <a class="nav-link" href="#">Rell Generate</a></li>
+                            <li class="nav-item"> <a class="nav-link" href="<?php echo base_url('subject') ?>">Subject</a></li>
+>>>>>>> 8cc2f5f303ff25e226038f4c34e860688903b489
                         </ul>
                     </div>
                 </li>

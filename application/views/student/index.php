@@ -41,6 +41,7 @@
 
 
                 <div class="table-responsive">
+<<<<<<< HEAD
                     <table id="example" class="table table-bordered" style="width:100%">
                         <!-- <table id="example" class="table table-striped" style="width:100%"> -->
                         <thead class="table-warning">
@@ -52,6 +53,19 @@
                                 <th class="text-light"> Email </th>
                                 <th class="text-light"> Gender </th>
                                 <th class="text-center text-light"> Action </th>
+=======
+                    <table class="table table-dark  ">
+                        <thead>
+                            <tr>
+                                <th> # </th>
+                                <th> Name </th>
+                                <th> Mobile </th>
+                                <th> Email </th>
+                                <th> Date Of Birth </th>
+                                <th> Gender </th>
+                                <th> Address </th>
+                                <th class="text-center"> Action </th>
+>>>>>>> 8cc2f5f303ff25e226038f4c34e860688903b489
                             </tr>
                         </thead>
                         <tbody id="listRecords">
@@ -77,9 +91,14 @@
                                         <td><a href="<?= base_url("student/send_mail/{$d->id}") ?>"><?= $d->email ?></a></td>
 
                                         <td><?= $d->gender ?></td>
+<<<<<<< HEAD
 
                                         <td>
                                             <a href="javascript:void(0);" class="btn btn-success btn-xs view-record" data-id="<?= $d->id ?>">View</a>
+=======
+                                        <td><?= $d->address ?></td>
+                                        <td><a href="<?= base_url("student/delete/{$d->id}") ?>" class="btn btn-xs btn-danger del-record">Delete</a> <a href="<?= base_url("student_payment/create/{$d->id}") ?>" class="btn btn-xs btn-primary">Pay</a> <a href="<?= base_url("student_payment/invoice/{$d->id}") ?>" class="btn btn-xs btn-primary">Invoice</a> </td>
+>>>>>>> 8cc2f5f303ff25e226038f4c34e860688903b489
 
                                             <a href="<?= base_url("student/delete/{$d->id}") ?>" class="btn btn-xs btn-danger del-record">Delete</a>
                                         </td>

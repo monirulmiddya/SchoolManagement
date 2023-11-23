@@ -1,8 +1,12 @@
 <?php
+<<<<<<< HEAD
 
 use function PHPSTORM_META\type;
 
 defined('BASEPATH') or exit('No direct script access allowed');
+=======
+defined ('BASEPATH') or exit('No direct script access allowed');
+>>>>>>> 8cc2f5f303ff25e226038f4c34e860688903b489
 
 
 /**
@@ -18,6 +22,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
  * @return    ...
  *
  */
+<<<<<<< HEAD
 
 class Demo extends CI_Controller
 {
@@ -267,3 +272,25 @@ class Demo extends CI_Controller
 /* Location: ./application/controllers/Student.php */
 
 // dfflxzeugykgbrzu
+=======
+  
+class Demo extends CI_Controller
+{
+  private $ud = [];
+  public function __construct()
+  {
+    parent::__construct();
+    $this->load->model('demo_model');
+  }
+
+  public function index(){
+    $data=$this->demo_model->get_all();
+    pp($data);
+  }
+
+}
+
+
+/* End of file Student.php */
+/* Location: ./application/controllers/Student.php */
+>>>>>>> 8cc2f5f303ff25e226038f4c34e860688903b489

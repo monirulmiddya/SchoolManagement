@@ -23,6 +23,7 @@
                     <table class="table table-bordered table-contextual">
                         <thead class="table-warning">
                             <tr>
+<<<<<<< HEAD
                                 <th class="text-light"> # </th>
                                 <th class="text-light"> Name </th>
                                 <th class="text-light"> Previous Classes </th>
@@ -30,6 +31,16 @@
                                 <th class="text-light"> Remarks </th>
                                 <th class="text-light">Academic Year</th>
                                 <th class="text-light"> Action </th>
+=======
+                                <th> # </th>
+                                <th> Name </th>
+                                <th> Previous Classes </th>
+                                <th> Current Classes </th>
+                                <th> Remarks </th>
+                                <th>Academic Year</th>
+                                <th> s </th>
+                                <th> Action </th>
+>>>>>>> 8cc2f5f303ff25e226038f4c34e860688903b489
                             </tr>
                         </thead>
                         <tbody>
@@ -45,6 +56,10 @@
                                         <td><?= $d->current_class ?></td>
                                         <td><?= $d->remarks ?></td>
                                         <td><?= $d->academic_year ?></td>
+<<<<<<< HEAD
+=======
+                                        <td><?= $d->student_id ?></td>
+>>>>>>> 8cc2f5f303ff25e226038f4c34e860688903b489
                                         <td><a href="<?= base_url("student_admission/delete/{$d->id}") ?>" class="btn btn-xs btn-danger del-record" id="del-record">Delete</a></td>
                                     </tr>
                             <?php endforeach;
@@ -57,6 +72,7 @@
     </div>
 </div>
 
+<<<<<<< HEAD
 <div class="card">
     <div class="card-body">
         <h4 class="card-title my-2">Students Get Filter By Class </h4>
@@ -124,6 +140,52 @@
                 "type": "get",
                 "dataType": "json",
                 success: function(resp) {
+=======
+<form class="form-inline" method="post">
+    <select class=" form-group col-md-3" name="name" id="set-year">
+        <option value="">Set Years</option>
+        <?php foreach ($years as $d) : ?>
+            <option value="<?= $d->name ?>"><?= $d->name ?></option>
+        <?php endforeach; ?>
+    </select>
+
+    <select class=" form-group col-md-3" name="name" id="filter-By">
+        <option value="">Filter By</option>
+        <?php foreach ($classes as $class) : ?>
+            <option value="<?= $class->id ?>"><?= $class->class ?></option>
+        <?php endforeach; ?>
+    </select>
+</form>
+
+
+<table class="table table-dark">
+    <thead>
+        <tr>
+            <th> # </th>
+            <th> Name </th>
+            <th> Current Classes </th>
+            <th> Remarks </th>
+            <th>Academic Year</th>
+
+        </tr>
+    </thead>
+    <tbody id=student-res>
+
+    </tbody>
+</table>
+
+<script>
+    $(document).ready(function() {
+        $('#filter-By').change(function() {
+            var class_id = $(this).val();
+
+            $.ajax({
+                "url": `<?= base_url("/student_admission/get") ?>/${class_id}`,
+                "type": "get",
+                "dataType": "json",
+                success: function(resp) {
+                    console.log(resp);
+>>>>>>> 8cc2f5f303ff25e226038f4c34e860688903b489
                     if (resp.length > 0) {
                         var html = '';
                         var i;
@@ -142,10 +204,19 @@
                             $('#student-res').html(html);
                         }
                         $('#student-res').html(html);
+<<<<<<< HEAD
                         $('#year_error').hide();
                     } else {
                         $('#student-res').html(`<tr class="text-center text-danger"><td colspan="8">Records not available</td></tr>`);
                     }
+=======
+                    } else {
+                        $('#student-res').html(`<tr class="text-center"><td colspan="8">Records not available</td></tr>`);
+                    }
+
+
+
+>>>>>>> 8cc2f5f303ff25e226038f4c34e860688903b489
                 },
                 error: function(eror) {
                     alert("Server internal error");
@@ -156,6 +227,12 @@
         $('#set-year').change(function() {
             var year = $(this).val()
         });
+<<<<<<< HEAD
     })
 </script>
 
+=======
+
+    })
+</script>
+>>>>>>> 8cc2f5f303ff25e226038f4c34e860688903b489

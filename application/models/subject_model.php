@@ -21,7 +21,10 @@ class subject_model extends CI_Model
     // ------------------------------------------------------------------------
 
     private $table = "subject";
+<<<<<<< HEAD
     private $class_table = "class";
+=======
+>>>>>>> 8cc2f5f303ff25e226038f4c34e860688903b489
 
     public function __construct()
     {
@@ -33,6 +36,7 @@ class subject_model extends CI_Model
 
     // ------------------------------------------------------------------------
 
+<<<<<<< HEAD
     function subjectList($cid)
     {
         $this->db->select("s.*,c.class,");
@@ -43,13 +47,22 @@ class subject_model extends CI_Model
         
         // $hasil = $this->db->get($this->table);
         // return $hasil->result();
+=======
+    function subjectList()
+    {
+        $hasil = $this->db->get($this->table);
+        return $hasil->result();
+>>>>>>> 8cc2f5f303ff25e226038f4c34e860688903b489
     }
 
     function saveSub()
     {
         $data = array(
             'name'             => $this->input->post('name'),
+<<<<<<< HEAD
             'class'             => $this->input->post('class'),
+=======
+>>>>>>> 8cc2f5f303ff25e226038f4c34e860688903b489
         );
         $result = $this->db->insert($this->table, $data);
         return $result;
@@ -73,6 +86,7 @@ class subject_model extends CI_Model
         return $result;
     }
 
+<<<<<<< HEAD
     function get_class($id){
         $this->db->select("*");
         $this->db->from($this->table);
@@ -80,6 +94,8 @@ class subject_model extends CI_Model
         return $this->db->get()->result();
     }
 
+=======
+>>>>>>> 8cc2f5f303ff25e226038f4c34e860688903b489
     // ------------------------------------------------------------------------
 
 

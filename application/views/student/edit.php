@@ -45,7 +45,11 @@
 
                         <div class="form-group col-md-6">
                             <label for="gender">Gender</label>
+<<<<<<< HEAD
 
+=======
+                            
+>>>>>>> 8cc2f5f303ff25e226038f4c34e860688903b489
                             <select class="form-control" id="gender" name="gender" value="<?= $student->gender ?>">
                                 <option value="Male" <?php if ($student->gender == 'Male') {
                                                             echo 'selected';
@@ -60,10 +64,36 @@
                         <div class="form-group col-md-6">
                             <label>Classes</label>
                             <select class="form-control" name="class_id" style=" width:100%">
+<<<<<<< HEAD
                                 <?php foreach ($class as $c) : ?>
                                     <option value="<?= $c->id ?>" <?= $student->class_id == $c->id ? " selected " : "" ?>><?= $c->class ?></option>
                                 <?php endforeach; ?>
                             </select>
+=======
+                                <option <?php if (
+                                            $student->class_id ==
+                                            $student->class_id
+                                        ) echo "selected"; ?> value="<?php echo $student->class_id ?>">
+                                    <?php echo $student->class; ?> </option>
+
+                                <?php foreach ($class as $c) : ?>
+                                    <option value="<?= $c->id ?>"><?= $c->class ?></option>
+
+                                <?php endforeach; ?>
+                            </select>
+                        </div>
+
+
+                        <div class="form-group col-md-12">
+                            <label>Photo</label>
+                            <input type="file" name="photo" class="file-upload-default">
+                            <div class="input-group col-xs-12">
+                                <input type="text" class="form-control file-upload-info" placeholder="Upload Image">
+                                <span class="input-group-append">
+                                    <button class="file-upload-browse btn btn-primary" type="button">Upload</button>
+                                </span>
+                            </div>
+>>>>>>> 8cc2f5f303ff25e226038f4c34e860688903b489
                         </div>
 
                         <div class="col-md-12 mb-3">

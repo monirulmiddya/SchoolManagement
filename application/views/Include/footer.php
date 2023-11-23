@@ -36,12 +36,17 @@
  <script src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap4.min.js"></script>
  <!-- my jquery file -->
  <script src="<?= base_url('assets/js/my_jquery.js') ?>"></script>
+<<<<<<< HEAD
  <!-- <script src="<?= base_url('assets/js/ajax.js') ?>"></script> -->
  <!-- <script src="<?= base_url('assets/my_js/crud_subject.js') ?>"></script> -->
 
 
 
 
+=======
+ <script src="<?= base_url('assets/js/ajax.js') ?>"></script>
+ <!-- <script src="<?= base_url('assets/my_js/crud_subject.js') ?>"></script> -->
+>>>>>>> 8cc2f5f303ff25e226038f4c34e860688903b489
 
 
  </body>
